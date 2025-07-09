@@ -55,17 +55,19 @@ def create_dummy_data():
     """
     Populates the 'shoes' table with dummy data if it's currently empty.
     """
+    first_image = 'https://gbcproject-frontend.s3.us-east-1.amazonaws.com/10388592_11.webp'
+    second_image = 'https://gbcproject-frontend.s3.us-east-1.amazonaws.com/C04288s10.webp'
     if Shoe.query.count() == 0:
         print("Populating database with dummy data...")
         dummy_shoes = [
-            Shoe(name='Nike Air Max 270', size=9, s3link='https://placehold.co/400x300/a0a0a0/ffffff?text=Nike+Air+Max'),
-            Shoe(name='Adidas Ultraboost 22', size=10, s3link='https://placehold.co/400x300/b0b0b0/ffffff?text=Adidas+Ultraboost'),
-            Shoe(name='Puma RS-X', size=8, s3link='https://placehold.co/400x300/c0c0c0/ffffff?text=Puma+RS-X'),
-            Shoe(name='New Balance 990v5', size=9, s3link='https://placehold.co/400x300/d0d0d0/ffffff?text=New+Balance'),
-            Shoe(name='Converse Chuck Taylor', size=7, s3link='https://placehold.co/400x300/e0e0e0/ffffff?text=Converse'),
-            Shoe(name='Vans Old Skool', size=11, s3link='https://placehold.co/400x300/f0f0f0/ffffff?text=Vans+Old+Skool'),
-            Shoe(name='Reebok Classic', size=8, s3link='https://placehold.co/400x300/a5a5a5/ffffff?text=Reebok+Classic'),
-            Shoe(name='Asics Gel-Kayano', size=10, s3link='https://placehold.co/400x300/b5b5b5/ffffff?text=Asics+Gel-Kayano'),
+            Shoe(name='Nike Air Max 270', size=9, s3link=first_image),
+            Shoe(name='Adidas Ultraboost 22', size=10, s3link=second_image),
+            Shoe(name='Puma RS-X', size=8, s3link=first_image),
+            Shoe(name='New Balance 990v5', size=9, s3link=second_image),
+            Shoe(name='Converse Chuck Taylor', size=7, s3link=first_image),
+            Shoe(name='Vans Old Skool', size=11, s3link=second_image),
+            Shoe(name='Reebok Classic', size=8, s3link=first_image),
+            Shoe(name='Asics Gel-Kayano', size=10, s3link=second_image),
         ]
         db.session.add_all(dummy_shoes)
         db.session.commit()
